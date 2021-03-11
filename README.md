@@ -1,6 +1,35 @@
 # multi-user-git-hook
 
-Switch git user based on the name of the directory.
+DEPRECATED: Switch git user based on the name of the directory.
+
+as `@crea1` said in [stackoverflow](https://stackoverflow.com/questions/8801729/is-it-possible-to-have-different-git-configuration-for-different-projects):
+
+As of git version 2.13, git supports [conditional configuration includes](https://git-scm.com/docs/git-config#_conditional_includes). In this example we clone Company A's repos in ~/company_a directory, and Company B's repos in ~/company_b.
+
+In your `.gitconfig` you can put something like this.
+
+```ini
+[includeIf "gitdir:~/company_a/"]
+  path = .gitconfig-company_a
+[includeIf "gitdir:~/company_b/"]
+  path = .gitconfig-company_b
+```
+
+Example contents of `.gitconfig-company_a`
+
+```ini
+[user]
+name = John Smith
+email = john.smith@companya.net
+```
+
+Example contents of `.gitconfig-company_b`
+
+```ini
+[user]
+name = John Smith
+email = js@companyb.com
+```
 
 ## setting git init template
 
