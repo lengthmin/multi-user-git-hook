@@ -1,4 +1,6 @@
-# multi-email-git-hook
+# multi-user-git-hook
+
+Switch git user based on the name of the directory.
 
 ## setting git init template
 
@@ -24,13 +26,11 @@ first of all, pls read: [githooks Documentation](http://git-scm.com/docs/githook
 cp -i pre-commit.py ~/.config/git/template/hooks/pre-commit
 ```
 
+then next time you create a git project, the hook will be active.
+
 ## set email
 
-example:
-
-put this in your `~/.gitconfig`
-
-`dismatch` is glob-style pattern.
+the key `has` means the `pwd` result has this part, for example, `~/0Workspace/multi-user-git-hook` has `0Workspace`.
 
 ```ini
 [multi "ant"]
@@ -45,6 +45,22 @@ put this in your `~/.gitconfig`
 	user-signingkey = xxxxx
 ```
 
+set this in your `~/.gitconfig`
+
 use dash(`-`) to separate the different parts, for example: `user.email` -> `user-email`.
 
 because `.gitconfig` can not use dash as the key.
+
+## make install
+
+you can use `make install` to place the `pre-commit` file, and change the `.gitconfig` mannualy.
+
+## Thanks
+
+Thanks to [pgils/multi-email-git-hook](https://github.com/pgils/multi-email-git-hook), the project has helped me a lot.
+
+## References
+
+- [pgils/multi-email-git-hook](https://github.com/pgils/multi-email-git-hook)
+- [git-init Documentation](http://git-scm.com/docs/git-init)
+- [githooks Documentation](http://git-scm.com/docs/githooks)
