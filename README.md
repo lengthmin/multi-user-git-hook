@@ -30,7 +30,7 @@ then next time you create a git project, the hook will be active.
 
 ## set email
 
-the key `has` means the `pwd` result has this part, for example, `~/0Workspace/multi-user-git-hook` has `0Workspace`.
+the key `has` means `$(pwd)` has `$(value)`, for example, `~/0Workspace/multi-user-git-hook` has `0Workspace`.
 
 ```ini
 [multi "ant"]
